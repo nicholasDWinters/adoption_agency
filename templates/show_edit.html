@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+                <h1 class="display-3">{{pet.name}}</h1>
+                <h2>{{pet.species.capitalize()}}</h2>
+                {%if pet.age%}
+                <h5 class="mb-3">Age: {{pet.age}}</h5>
+                {%endif%}
+                {%if pet.photo_url%}
+                <img src="{{pet.photo_url}}" alt="" class="img img-fluid">
+                {%endif%}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4 mt-5">
+                <h2 class="mb-4">Edit {{pet.name}}</h2>
+                <form method="post" class="">
+                    {{form.hidden_tag()}}
+                    {%for field in form %}
+                    {%for error in field.errors%}
+                    <small class="form-text text-danger">{{error}}</small>
+                    {%endfor%}
+                    {%endfor%}
+
+
+                    <div class="mb-3">
+                        {{form.photo_url.label(class_='form-label')}}
+                        {{form.photo_url(class_='form-control')}}
+                    </div>
+
+                    <div class="mb-3">
+                        {{form.notes.label(class_='form-label')}}
+                        {{form.notes(class_='form-control')}}
+                    </div>
+
+                    <div class="mb-3">
+                        {{form.available.label(class_='form-label')}}
+                        {{form.available(class_='')}}
+                    </div>
+
+
+                    <button class="btn btn-success mb-3">Save Changes</button>
+                </form>
+                <a href="/" class="btn btn-outline-danger">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

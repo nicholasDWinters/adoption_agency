@@ -1,0 +1,23 @@
+.age_input {
+    width: 75px;
+}
+
+.error {
+    background-color: lightcoral;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    padding: 10px;
+}
+
+.pet_image {
+   width: 100%;
+}
+
+.success {
+    background-color: lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    padding: 10px;
+}
